@@ -1,0 +1,17 @@
+{
+  "name": "angular-mn-date",
+  "description": "An angular directive to mn-date",
+  "main": [
+    "dist/angular-mn-date.js",
+    "dist/angular-mn-date.css"
+  ],
+  "authors": [
+    "Darlan Mendonça <darlanmendonca@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "dependencies": {
+    "angular": "^1.6.1",
+    "mn-date": "^0.0.2"
+  }
+}
