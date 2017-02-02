@@ -1,0 +1,59 @@
+html(ng-app='app')
+  head
+    meta(name='viewport' content='width=device-width, user-scalable=no')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css')
+
+    block styles
+      link(rel='stylesheet' href='docs/vendor.css')
+
+  body(ng-controller='IndexController as controller')
+    h2 angular-mn-date
+    include github-corner
+
+    .mn-layout-fullscreen.mn-layout-centered
+      .mn-layout-container
+        mn-form.mn-layout-column.mn-layout-sm-row.submitted
+          mn-date.flex(placeholder='a date' ng-model='controller.date')
+          mn-date.flex(placeholder='birthdate' ng-model='controller.birthdate')
+          //- value='1990-09-04'
+          //- mn-date.flex(placeholder='another number')
+          //- button.mn-button submit
+
+    .docs.mn-layout-container
+      mn-code.sh.
+        npm install --save angular-mn-date
+
+      p And bundle dependencies and main files in <strong>dist/</strong> with your preferred tool.
+
+      h3 usage
+      mn-code.js.
+        // add dependency in you module
+        angular.module('app', [
+          'mn-date'
+        ])
+
+      p And then, in your html, you can use the tag:
+
+      mn-code.html.
+        <mn-date placeholder="Date" ng-model='myDate'></mn-date>
+
+      p For more details check <a href="https://github.com/minimalist-components/mn-date">mn-date docs</a>.
+
+    block scripts
+      script(src='docs/vendor.js')
+      script(src='dist/angular-mn-date.js')
+
+    script.
+      angular.module('app', [
+        'mn-date',
+      ])
+
+      angular
+        .module('app')
+        .controller('IndexController', IndexController);
+
+      function IndexController() {
+        this.birthdate = null//new Date('1990-09-04 00:00:00')
+        this.date = null//new Date()
+      }
+

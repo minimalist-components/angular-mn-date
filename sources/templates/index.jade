@@ -1,4 +1,15 @@
-html(ng-app='app')
+extends demo
+
+block styles
+  link(rel='stylesheet' href='https://rawgit.com/minimalist-components/angular-mn-date/master/docs/vendor.css')
+
+block scripts
+  script(src='https://rawgit.com/minimalist-components/angular-mn-date/master/docs/vendor.js')
+  script(src='https://rawgit.com/minimalist-components/angular-mn-date/master/dist/angular-mn-date.js')
+
+
+
+//- html(ng-app='app')
   meta(name='viewport' content='width=device-width, user-scalable=no')
   link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css')
   link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans')
@@ -10,7 +21,7 @@ html(ng-app='app')
       -webkit-font-smoothing: antialiased;
     }
 
-body
+//- body
   form(ng-controller='IndexController as controller' name='form' novalidate)
     h2 mn-date
     div
