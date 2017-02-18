@@ -9,14 +9,22 @@ function MnDateDirective($compile, $parse) {
     require: 'ngModel',
   }
 
-  function link(scope, element, attributes) {
+  function link(scope, element, attributes, ngModel) {
     const dirtyInput = element[0].querySelector('input + input')
     if (dirtyInput) {
       element[0].removeChild(dirtyInput)
     }
+
     const input = element.find('input')
-    element[0].value = $parse(attributes.ngModel)(scope)
+    const attributeValue = $parse(attributes.ngModel)(scope)
+    const date = new Date(Date.parse(attributeValue))
+    const value = Date.parse(attributeValue) && date
+      ? date.toISOString().slice(0, 10)
+      : null
+    element[0].value = value
     input.attr('ng-model', attributes.ngModel)
+
+    ngModel.$setViewValue(new Date(value))
     $compile(input)(scope)
   }
 }
