@@ -21,12 +21,13 @@ function MnDateDirective($compile, $parse) {
     const validDate = attributeValue && Date.parse(attributeValue) && date
     const value = validDate
       ? date.toISOString().slice(0, 10)
-      : null
+      : undefined
     element[0].value = value
     input.attr('ng-model', attributes.ngModel)
-    if (validDate) {
-      ngModel.$setViewValue(new Date(value))
-    }
+    const viewValue = validDate
+      ? new Date(value)
+      : undefined
+    ngModel.$setViewValue(viewValue)
     $compile(input)(scope)
   }
 }
